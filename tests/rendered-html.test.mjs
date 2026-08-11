@@ -16,6 +16,15 @@ test("GitHub Pages 경로를 포함한 소개 페이지를 생성한다", async 
   assert.match(html, /href="\/joa-viewer-site\/privacy\.html"/);
   assert.match(html, /src="\/joa-viewer-site\/app-icon\.png"/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
+
+  const staticAssetPaths = [
+    ...html.matchAll(/(?:href|src)="(\/joa-viewer-site\/_next\/[^"]+)"/g),
+  ].map((match) => match[1].replace("/joa-viewer-site/", ""));
+
+  assert.ok(staticAssetPaths.length > 0);
+  await Promise.all(
+    staticAssetPaths.map((path) => access(new URL(path, outputRoot))),
+  );
 });
 
 test("공개 개인정보 처리방침과 지원 페이지를 생성한다", async () => {
