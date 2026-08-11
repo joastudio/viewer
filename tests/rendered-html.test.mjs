@@ -35,6 +35,7 @@ test("공개 개인정보 처리방침과 지원 페이지를 생성한다", asy
 
 test("필수 공개 자산을 포함한다", async () => {
   await Promise.all([
+    access(new URL(".nojekyll", outputRoot)),
     access(new URL("app-icon.png", outputRoot)),
     access(new URL("og.png", outputRoot)),
     access(new URL("404.html", outputRoot)),
