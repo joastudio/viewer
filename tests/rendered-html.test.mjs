@@ -1,0 +1,42 @@
+import assert from "node:assert/strict";
+import { access, readFile } from "node:fs/promises";
+import test from "node:test";
+
+const outputRoot = new URL("../dist/client/", import.meta.url);
+
+async function readOutput(name) {
+  return readFile(new URL(name, outputRoot), "utf8");
+}
+
+test("GitHub Pages 경로를 포함한 소개 페이지를 생성한다", async () => {
+  const html = await readOutput("index.html");
+
+  assert.match(html, /<title>좋아뷰어 — 내 파일, 내 책장, 내 방식<\/title>/);
+  assert.match(html, /Android · 로컬 우선 뷰어/);
+  assert.match(html, /href="\/joa-viewer-site\/privacy\.html"/);
+  assert.match(html, /src="\/joa-viewer-site\/app-icon\.png"/);
+  assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
+});
+
+test("공개 개인정보 처리방침과 지원 페이지를 생성한다", async () => {
+  const [privacy, support] = await Promise.all([
+    readOutput("privacy.html"),
+    readOutput("support.html"),
+  ]);
+
+  assert.match(privacy, /개인정보 처리방침/);
+  assert.match(privacy, /시행일 2026년 8월 10일/);
+  assert.match(privacy, /Google Mobile Ads SDK/);
+  assert.match(privacy, /보관과 삭제/);
+  assert.match(support, /무엇을 도와드릴까요/);
+  assert.match(support, /joa-viewer-site\/issues\/new/);
+  assert.match(support, /개인정보를 적지/);
+});
+
+test("필수 공개 자산을 포함한다", async () => {
+  await Promise.all([
+    access(new URL("app-icon.png", outputRoot)),
+    access(new URL("og.png", outputRoot)),
+    access(new URL("404.html", outputRoot)),
+  ]);
+});
