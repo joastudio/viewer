@@ -119,8 +119,8 @@ export default function Home() {
         <div className="section-heading">
           <p className="eyebrow">좋아뷰어가 지키는 것</p>
           <h2 id="features-title">
-            읽기에 집중하고,
-            <br />나머지는 가볍게.
+            <span>읽기에 집중하고,</span>
+            <span>나머지는 가볍게.</span>
           </h2>
         </div>
         <div className="feature-list">
@@ -134,6 +134,37 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="guide-teaser shell" aria-labelledby="guide-teaser-title">
+        <div>
+          <p className="eyebrow">File organization guide</p>
+          <h2 id="guide-teaser-title">파일을 정리하면 책장이 더 정확해집니다.</h2>
+          <p>
+            표지와 메타데이터, 회차 이름을 간단한 규칙에 맞추면 웹툰과
+            텍스트 소설을 작품 단위로 편하게 관리할 수 있습니다.
+          </p>
+          <a className="button-link" href={`${basePath}/guide.html`}>
+            파일 구성 가이드 보기
+          </a>
+        </div>
+        <ol aria-label="가이드 주요 내용">
+          <li>
+            <span>01</span>
+            <strong>웹툰 폴더</strong>
+            <small>표지 · 메타 · 회차</small>
+          </li>
+          <li>
+            <span>02</span>
+            <strong>소설 ZIP</strong>
+            <small>표지 · TXT 본문</small>
+          </li>
+          <li>
+            <span>03</span>
+            <strong>readme 메타</strong>
+            <small>태그 · 상태 · 작가</small>
+          </li>
+        </ol>
       </section>
 
       <section className="privacy-callout shell" aria-labelledby="privacy-title">
