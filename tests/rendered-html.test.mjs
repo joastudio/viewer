@@ -49,8 +49,14 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(guide, /생략한 필드는 앱에 저장된 기존 값을 변경하지 않습니다/);
   assert.match(guide, /ComicInfo\.xml/);
   assert.match(privacy, /개인정보 처리방침/);
-  assert.match(privacy, /시행일 2026년 8월 10일/);
+  assert.match(privacy, /시행일 2026년 9월 9일/);
   assert.match(privacy, /Google Mobile Ads SDK/);
+  // 앱이 실제로 전송하는 항목은 공개 방침에 반드시 남아 있어야 한다.
+  // Play Data Safety 선언과 어긋나면 정책 위반이므로 회귀를 테스트로 막는다.
+  assert.match(privacy, /Firebase Crashlytics/);
+  assert.match(privacy, /오류 보고/);
+  assert.match(privacy, /MangaDex/);
+  assert.match(privacy, /Google Books/);
   assert.match(privacy, /보관과 삭제/);
   assert.match(support, /무엇을 도와드릴까요/);
   assert.match(support, /joa-viewer-site\/issues\/new/);

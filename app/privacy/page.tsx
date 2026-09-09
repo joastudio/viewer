@@ -5,7 +5,8 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
   title: "개인정보 처리방침",
-  description: "좋아뷰어의 데이터 저장, 선택 기능, 광고와 결제 처리 안내입니다.",
+  description:
+    "좋아뷰어의 데이터 저장, 선택 기능, 광고와 결제, 오류 보고 처리 안내입니다.",
 };
 
 export const dynamic = "force-static";
@@ -14,6 +15,7 @@ const sections = [
   ["local", "기기에 저장하는 정보"],
   ["optional", "선택 기능"],
   ["ads", "광고와 결제"],
+  ["crash", "오류 보고"],
   ["third-party", "제3자 서비스"],
   ["retention", "보관과 삭제"],
   ["contact", "문의"],
@@ -24,7 +26,7 @@ export default function PrivacyPage() {
     <main className="page-main">
       <SiteHeader />
       <header className="page-hero shell">
-        <p className="eyebrow">Privacy policy · 시행일 2026년 8월 10일</p>
+        <p className="eyebrow">Privacy policy · 시행일 2026년 9월 9일</p>
         <h1>개인정보 처리방침</h1>
         <p>
           좋아뷰어는 사용자가 직접 선택한 로컬 문서를 열람하는 Android
@@ -46,7 +48,8 @@ export default function PrivacyPage() {
         <article className="document-content">
           <div className="notice-box">
             핵심 열람 기능은 회원가입 없이 사용할 수 있으며, 사용자가 고른
-            문서와 독서 기록은 기본적으로 기기 안에 보관됩니다.
+            문서와 독서 기록은 기본적으로 기기 안에 보관됩니다. 좋아뷰어는
+            사용자의 콘텐츠 파일 자체를 서버로 보내지 않습니다.
           </div>
 
           <section id="local">
@@ -81,10 +84,22 @@ export default function PrivacyPage() {
                 텍스트 처리 방식과 네트워크 사용 여부가 다를 수 있습니다.
               </li>
               <li>
-                개발 빌드의 실험적 음성·얼굴 제어는 사용자가 켤 때만
-                마이크·카메라 권한을 요청합니다. 얼굴 프레임은 기기에서만
-                처리하며 저장하거나 전송하지 않습니다. 공개 빌드에는 이
-                권한과 기능이 포함되지 않습니다.
+                <strong>온라인 정보 가져오기</strong>(설정 &gt; 데이터)를 직접
+                켠 경우에 한해, 작품 상세에서 <code>메타 자동 채우기</code>를
+                실행하면 <strong>그 책의 제목만</strong> 외부 검색
+                서비스(MangaDex, Google Books)로 전송합니다. 파일 경로·문서
+                URI·독서 기록·메모는 보내지 않습니다. 응답으로 받은 표지와
+                서지 정보는 기기에 저장하며, 사용자가 확인 화면에서 적용을
+                선택하면 책 파일 안(readme.txt, cover.jpg)에도 기록합니다. 이
+                기능은 기본으로 꺼져 있고 언제든 다시 끌 수 있습니다.
+              </li>
+              <li>
+                실험적 음성·얼굴 제어는 사용자가 뷰어에서 직접 켤 때만
+                마이크·카메라 권한을 요청합니다. 음성은 좋아뷰어가 저장하지
+                않지만 기기의 음성 인식 서비스에 따라 네트워크에서 처리될 수
+                있습니다. 얼굴 프레임은 기기에서만 처리하며 앱이 표시하거나
+                저장·전송하지 않습니다. 뷰어가 백그라운드로 가면 두 입력을
+                중지합니다. 기능을 켜지 않으면 권한을 요청하지 않습니다.
               </li>
             </ul>
           </section>
@@ -106,12 +121,44 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+          <section id="crash">
+            <h2>4. 오류 보고</h2>
+            <p>
+              앱이 예기치 않게 종료되면 Firebase Crashlytics로 오류 보고를
+              전송합니다. 전송 범위는 다음으로 제한합니다.
+            </p>
+            <ul>
+              <li>오류가 발생한 코드 위치(스택 트레이스)</li>
+              <li>기기 모델, Android 버전, 앱 버전</li>
+              <li>앱 설치마다 생성되는 식별자</li>
+            </ul>
+            <p>
+              파일 경로, 문서 URI, 책 제목, 독서 기록, 메모, 계정 정보는 오류
+              보고에 전송하지 않습니다. 사용자 계정을 식별하는 ID도 설정하지
+              않습니다. 책 제목이 앱 밖으로 나가는 유일한 경로는 2장의 온라인
+              정보 가져오기이며, 그 기능은 기본으로 꺼져 있습니다.
+            </p>
+            <p>
+              설정의 <code>오류 보고 보내기</code>에서 언제든 끌 수 있으며,
+              끄면 이후 오류 보고를 전송하지 않습니다. 오류 보고를 꺼도 모든
+              열람 기능을 그대로 사용할 수 있습니다.
+            </p>
+          </section>
+
           <section id="third-party">
-            <h2>4. 제3자 서비스</h2>
+            <h2>5. 제3자 서비스</h2>
             <ul>
               <li>Google Play Billing</li>
               <li>Google Mobile Ads 및 User Messaging Platform</li>
-              <li>Google Drive 및 Google 계정 인증</li>
+              <li>Firebase Crashlytics(오류 보고를 켠 경우)</li>
+              <li>
+                Google Drive 및 Google 계정 인증(사용자가 Drive 백업을 선택한
+                경우)
+              </li>
+              <li>
+                MangaDex 및 Google Books 검색 API(사용자가 온라인 정보
+                가져오기를 켠 경우)
+              </li>
               <li>사용자가 선택한 Android DocumentsProvider</li>
               <li>기기에 설치된 TTS 엔진</li>
             </ul>
@@ -119,7 +166,7 @@ export default function PrivacyPage() {
           </section>
 
           <section id="retention">
-            <h2>5. 보관과 삭제</h2>
+            <h2>6. 보관과 삭제</h2>
             <p>
               앱 삭제 또는 Android 설정의 앱 데이터 삭제로 로컬 데이터를
               제거할 수 있습니다. Drive·SAF에 만든 백업 파일은 사용자가 해당
@@ -129,7 +176,7 @@ export default function PrivacyPage() {
           </section>
 
           <section id="contact">
-            <h2>6. 문의</h2>
+            <h2>7. 문의</h2>
             <p>
               오류 제보와 개인정보 문의 방법은 <a href={`${basePath}/support.html`}>지원 페이지</a>에서
               확인할 수 있습니다. 개인정보가 포함된 내용은 공개 이슈에
