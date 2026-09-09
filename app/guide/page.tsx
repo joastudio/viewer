@@ -29,12 +29,16 @@ const webtoonTree = `내 웹툰/
    ├─ 001.webp
    └─ 002.webp`;
 
-const novelTree = `내 소설.zip
+const novelSingleFileTree = `내 소설.zip
 ├─ cover.jpg
 ├─ readme.txt
-├─ 01_서장.txt
-├─ 02_첫 번째 장.txt
-└─ 03_두 번째 장.txt`;
+└─ 전체.txt`;
+
+const novelPartsTree = `내 소설.zip
+├─ cover.jpg
+├─ readme.txt
+├─ 1부.txt
+└─ 2부.txt`;
 
 const metadataExample = `---
 tags: 판타지, 성장, 모험
@@ -104,12 +108,18 @@ export default function GuidePage() {
             <h2>표지 한 장과 TXT 본문을 ZIP에 담습니다</h2>
             <p>
               이미지가 없거나 한 장뿐이고 본문 TXT가 하나 이상이면 텍스트
-              소설로 인식합니다. 여러 TXT는 파일명 자연 정렬 순서로 이어서
-              한 권처럼 읽습니다.
+              소설로 인식합니다. 본문은 <code>전체.txt</code> 한 파일로
+              작성해도 되고, <code>1부.txt</code>, <code>2부.txt</code>처럼
+              여러 파일로 나눠도 됩니다. 여러 TXT는 파일명 자연 정렬 순서로
+              이어서 한 권처럼 읽습니다.
             </p>
             <div className="structure-example">
-              <span>권장 소설 ZIP 구조</span>
-              <pre aria-label="소설 ZIP 구조 예시">{novelTree}</pre>
+              <span>본문을 한 파일로 관리할 때</span>
+              <pre aria-label="전체 TXT 한 파일을 담은 소설 ZIP 구조 예시">{novelSingleFileTree}</pre>
+            </div>
+            <div className="structure-example">
+              <span>본문을 여러 부로 나눌 때</span>
+              <pre aria-label="여러 TXT를 담은 소설 ZIP 구조 예시">{novelPartsTree}</pre>
             </div>
             <ul>
               <li><code>readme.txt</code>는 메타데이터이므로 본문에서 제외됩니다.</li>
@@ -125,6 +135,11 @@ export default function GuidePage() {
               작품 최상위의 <code>readme.txt</code> 또는 <code>readme.md</code>
               첫 부분에 아래 형식을 작성합니다. 일반 YAML 전체 문법이 아닌,
               한 줄에 하나의 <code>key: value</code>를 쓰는 간단한 형식입니다.
+            </p>
+            <p className="guide-caution">
+              <strong>모든 필드는 선택 사항입니다.</strong> 원하는 항목만 작성할
+              수 있으며, 생략한 필드는 앱에 저장된 기존 값을 변경하지 않습니다.
+              유효하지 않은 값과 알 수 없는 필드는 오류 없이 무시됩니다.
             </p>
             <div className="structure-example metadata-example">
               <span>readme.txt 예시</span>

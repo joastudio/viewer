@@ -41,7 +41,12 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(guide, /<title>파일 구성 가이드 \| 좋아뷰어<\/title>/);
   assert.match(guide, /내 웹툰\//);
   assert.match(guide, /내 소설\.zip/);
+  assert.match(guide, /전체\.txt/);
+  assert.match(guide, /1부\.txt/);
+  assert.match(guide, /2부\.txt/);
   assert.match(guide, /status: reading/);
+  assert.match(guide, /모든 필드는 선택 사항입니다/);
+  assert.match(guide, /생략한 필드는 앱에 저장된 기존 값을 변경하지 않습니다/);
   assert.match(guide, /ComicInfo\.xml/);
   assert.match(privacy, /개인정보 처리방침/);
   assert.match(privacy, /시행일 2026년 8월 10일/);
