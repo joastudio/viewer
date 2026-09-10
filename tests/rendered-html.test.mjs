@@ -61,6 +61,12 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(support, /무엇을 도와드릴까요/);
   assert.match(support, /viewer\/issues\/new/);
   assert.match(support, /개인정보를 적지/);
+  // Play Data Safety 의 데이터 삭제 URL 요건: 앱 이름, 삭제 단계, 보관 기간이
+  // 모두 이 페이지에 있어야 한다.
+  assert.match(support, /데이터 삭제 요청/);
+  assert.match(support, /좋아뷰어\(Joa Viewer\)/);
+  assert.match(support, /joastudio\.app@gmail\.com/);
+  assert.match(support, /90일/);
 });
 
 test("필수 공개 자산을 포함한다", async () => {

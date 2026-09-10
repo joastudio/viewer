@@ -76,6 +76,70 @@ export default function SupportPage() {
           </div>
         </section>
       </div>
+
+      <section
+        className="shell"
+        id="data-deletion"
+        aria-labelledby="data-deletion-title"
+      >
+        <p className="eyebrow">Data deletion</p>
+        <h2 id="data-deletion-title">데이터 삭제 요청</h2>
+        <p>
+          좋아뷰어(Joa Viewer)는 읽은 책과 진도, 설정을 기기 안에만 저장하며
+          책 파일을 서버로 보내지 않습니다. 아래 방법으로 데이터를 직접
+          삭제하거나 삭제를 요청할 수 있습니다.
+        </p>
+
+        <h3>1. 기기에 저장된 데이터 삭제</h3>
+        <ol>
+          <li>
+            Android 설정 → 앱 → 좋아뷰어 → 저장공간에서 <strong>데이터 삭제</strong>
+            를 선택합니다.
+          </li>
+          <li>앱을 삭제해도 같은 결과가 됩니다.</li>
+          <li>
+            직접 만든 백업 파일은 저장한 위치(기기 저장소 또는 클라우드)에서
+            직접 지워야 합니다.
+          </li>
+        </ol>
+
+        <h3>2. 전송된 데이터의 삭제 요청</h3>
+        <ol>
+          <li>
+            <a href="mailto:joastudio.app@gmail.com?subject=데이터 삭제 요청">
+              joastudio.app@gmail.com
+            </a>
+            으로 제목에 &quot;데이터 삭제 요청&quot;을 적어 보내 주세요.
+          </li>
+          <li>
+            기기 모델과 문제가 발생한 대략적인 날짜를 함께 적으면 해당 기록을
+            찾는 데 도움이 됩니다.
+          </li>
+          <li>접수 후 30일 이내에 처리하고 회신합니다.</li>
+        </ol>
+
+        <h3>3. 수집 항목과 보관 기간</h3>
+        <ul>
+          <li>
+            <strong>오류 보고(비정상 종료 로그·진단 정보)</strong> — Firebase
+            Crashlytics 에 전송되며 최대 90일 보관 후 자동 삭제됩니다. 앱 설정
+            에서 전송을 끌 수 있습니다.
+          </li>
+          <li>
+            <strong>광고 ID</strong> — 광고 표시에 사용됩니다. Android 설정 →
+            개인정보 보호 → 광고에서 언제든 재설정하거나 삭제할 수 있습니다.
+          </li>
+          <li>
+            <strong>읽은 기록·책장·설정</strong> — 기기에만 저장되며 전송하지
+            않습니다. 위 1번 방법으로 삭제됩니다.
+          </li>
+          <li>
+            <strong>구매 기록</strong> — Google Play 가 보관하며 Google 의
+            법적·회계 정책에 따릅니다.
+          </li>
+        </ul>
+      </section>
+
       <SiteFooter />
     </main>
   );
