@@ -4,9 +4,9 @@
 
 ## 공개 주소
 
-- 홈: `https://soonyworks.github.io/joa-viewer-site/`
-- 개인정보 처리방침: `https://soonyworks.github.io/joa-viewer-site/privacy.html`
-- 지원: `https://soonyworks.github.io/joa-viewer-site/support.html`
+- 홈: `https://joastudio.github.io/viewer/`
+- 개인정보 처리방침: `https://joastudio.github.io/viewer/privacy.html`
+- 지원: `https://joastudio.github.io/viewer/support.html`
 
 ## 로컬 실행
 

@@ -1,7 +1,7 @@
 import { access, rename, rm } from "node:fs/promises";
 
 const outputRoot = new URL("../dist/client/", import.meta.url);
-const nestedBasePath = new URL("joa-viewer-site/", outputRoot);
+const nestedBasePath = new URL("viewer/", outputRoot);
 const nestedAssets = new URL("_next/", nestedBasePath);
 const publicAssets = new URL("_next/", outputRoot);
 

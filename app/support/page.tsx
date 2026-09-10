@@ -53,7 +53,7 @@ export default function SupportPage() {
             이용해 주세요.
           </p>
           <a
-            href="https://github.com/soonyworks/joa-viewer-site/issues/new"
+            href="https://github.com/joastudio/viewer/issues/new"
             target="_blank"
             rel="noreferrer"
           >

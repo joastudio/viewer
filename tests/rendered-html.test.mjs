@@ -13,17 +13,17 @@ test("GitHub Pages 경로를 포함한 소개 페이지를 생성한다", async 
 
   assert.match(html, /<title>좋아뷰어 — 내 파일, 내 책장, 내 방식<\/title>/);
   assert.match(html, /Android · 로컬 우선 뷰어/);
-  assert.match(html, /href="\/joa-viewer-site\/privacy\.html"/);
-  assert.match(html, /src="\/joa-viewer-site\/app-icon\.png"/);
-  assert.match(html, /href="\/joa-viewer-site\/guide\.html"/);
+  assert.match(html, /href="\/viewer\/privacy\.html"/);
+  assert.match(html, /src="\/viewer\/app-icon\.png"/);
+  assert.match(html, /href="\/viewer\/guide\.html"/);
   assert.match(html, /파일 구성 가이드 보기/);
   assert.match(html, /<span>읽기에 집중하고,<\/span>/);
   assert.match(html, /<span>나머지는 가볍게\.<\/span>/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 
   const staticAssetPaths = [
-    ...html.matchAll(/(?:href|src)="(\/joa-viewer-site\/_next\/[^"]+)"/g),
-  ].map((match) => match[1].replace("/joa-viewer-site/", ""));
+    ...html.matchAll(/(?:href|src)="(\/viewer\/_next\/[^"]+)"/g),
+  ].map((match) => match[1].replace("/viewer/", ""));
 
   assert.ok(staticAssetPaths.length > 0);
   await Promise.all(
@@ -59,7 +59,7 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(privacy, /Google Books/);
   assert.match(privacy, /보관과 삭제/);
   assert.match(support, /무엇을 도와드릴까요/);
-  assert.match(support, /joa-viewer-site\/issues\/new/);
+  assert.match(support, /viewer\/issues\/new/);
   assert.match(support, /개인정보를 적지/);
 });
 
