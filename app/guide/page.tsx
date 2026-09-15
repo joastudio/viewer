@@ -124,7 +124,12 @@ export default function GuidePage() {
             <ul>
               <li><code>readme.txt</code>는 메타데이터이므로 본문에서 제외됩니다.</li>
               <li>본문 이미지가 두 장 이상이면 이미지 책으로 판정될 수 있습니다.</li>
+              <li>
+                압축하지 않은 폴더에 TXT만 있으면 TXT 파일이 각각 한 권으로
+                보입니다. 여러 TXT를 한 권으로 묶으려면 ZIP으로 묶어 주세요.
+              </li>
               <li>본문 파일은 UTF-8 사용을 권장하며 한국어 레거시 인코딩도 자동 감지합니다.</li>
+              <li>본문은 파일당 32MiB, 한 권 전체 64MiB까지 열 수 있습니다.</li>
             </ul>
           </section>
 
@@ -154,11 +159,39 @@ export default function GuidePage() {
               <div><code>source_url</code><span>http 또는 https 원문·구매 링크</span></div>
               <div><code>note</code><span>작품 메모</span></div>
             </div>
+            <p>
+              readme는 책 정보 화면을 열 때 가져오며, 기본 설정은{" "}
+              <strong>자동 적용</strong>입니다. 파일과 앱의 값이 다르면 파일이
+              우선합니다. 압축파일 안의 readme는 처음 한 번만 자동으로 가져오므로,
+              나중에 고쳤다면 책 정보 화면의 <code>readme 다시 가져오기</code>를
+              눌러 주세요.
+            </p>
+            <h3>앱에서 고친 정보는 readme.txt에도 저장됩니다</h3>
+            <p>
+              책 정보나 책장 일괄 편집에서 평가·상태·태그·메모 등을 바꾸면,
+              설정의 <code>바꾼 책 정보를 readme.txt 에 저장</code>(기본 켜짐)에
+              따라 아래처럼 저장됩니다.
+            </p>
+            <ul>
+              <li>폴더로 된 책: 폴더의 readme 파일에 저장합니다.</li>
+              <li>소설 ZIP(표지 + 본문 TXT): ZIP 안의 readme.txt에 저장합니다.</li>
+              <li>만화 압축파일과 단독 TXT: 파일은 그대로 두고 앱 안에만 저장합니다.</li>
+            </ul>
             <p className="guide-caution">
               <strong>확인:</strong> <code>title</code>, <code>ComicInfo.xml</code>,{" "}
-              <code>info.json</code>은 현재 메타데이터로 가져오지 않습니다.
-              압축파일 안의 readme는 읽을 수 있지만 앱에서 수정한 값을 다시
-              압축파일 안에 쓰지는 않습니다.
+              <code>info.json</code>은 현재 메타데이터로 가져오지 않습니다. 앱이
+              readme에 저장할 때는 <code>---</code> 사이의 내용을 앱의 값으로 새로
+              쓰므로, 지원하지 않는 필드와 그 안의 주석은 사라집니다.{" "}
+              <code>---</code> 아래의 본문은 그대로 남습니다.
+            </p>
+            <h3>온라인에서 책 정보 가져오기</h3>
+            <p>
+              설정의 <code>인터넷에서 표지·정보 찾기</code>를 켜면 책 정보
+              화면에서 한 권씩 표지·작가·태그를 검색해 채울 수 있습니다. 이
+              기능은 기본으로 꺼져 있으며, 켜면 책 제목이 MangaDex와 Google
+              Books로 전송됩니다. 결과를 적용하면 폴더로 된 책에는{" "}
+              <code>cover.jpg</code>와 <code>readme.txt</code>를 쓰고, 단독 TXT는
+              표지·본문·readme를 담은 소설 ZIP으로 바꿉니다.
             </p>
           </section>
 
@@ -172,10 +205,23 @@ export default function GuidePage() {
               회차 폴더가 아니라 작품 폴더나 압축파일의 최상위에 배치합니다.
             </p>
             <ol>
-              <li>앱에서 사용자가 직접 지정한 표지</li>
+              <li>
+                앱에서 직접 지정한 표지(<code>표지 변경</code>,{" "}
+                <code>표지 일괄 설정</code>, 온라인에서 가져온 표지)
+              </li>
               <li>최상위의 <code>cover.*</code></li>
+              <li>소설처럼 이미지가 한 장뿐인 구조라면 그 이미지</li>
               <li>정렬된 첫 번째 본문 이미지</li>
             </ol>
+            <p>
+              표지를 찾지 못한 책은 제목 타일로 표시합니다. 책이 아닌 일반
+              폴더는 안에 든 작품 표지를 최대 4개까지 모자이크로 보여 줍니다.
+            </p>
+            <p className="guide-caution">
+              <strong>확인:</strong> <code>cover.*</code>를 본문 페이지에서
+              빼는 동작은 폴더와 ZIP·CBZ에 적용됩니다. RAR·CBR, 7z·CB7에서는
+              표지 파일이 첫 페이지로 함께 보일 수 있습니다.
+            </p>
           </section>
 
           <section id="tips">
@@ -184,8 +230,12 @@ export default function GuidePage() {
             <ul>
               <li>회차와 페이지 번호는 <code>001</code>, <code>002</code>처럼 자릿수를 맞춥니다.</li>
               <li>작품 폴더 안에는 한 작품의 회차만 보관합니다.</li>
-              <li>macOS의 <code>__MACOSX</code> 같은 보조 파일은 자동으로 무시됩니다.</li>
-              <li>암호화되거나 손상된 압축파일은 열리지 않을 수 있습니다.</li>
+              <li>
+                ZIP·CBZ 안의 <code>__MACOSX</code> 같은 macOS 보조 파일은 자동으로
+                무시됩니다. 다른 형식이나 압축을 푼 폴더에서는 미리 지워 주세요.
+              </li>
+              <li>페이지 이미지는 JPG, PNG, WebP, GIF를 사용합니다.</li>
+              <li>암호가 걸린 압축파일은 지원하지 않으며, 손상된 압축파일은 열리지 않을 수 있습니다.</li>
             </ul>
           </section>
         </article>

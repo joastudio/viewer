@@ -19,6 +19,11 @@ test("GitHub Pages 경로를 포함한 소개 페이지를 생성한다", async 
   assert.match(html, /파일 구성 가이드 보기/);
   assert.match(html, /<span>읽기에 집중하고,<\/span>/);
   assert.match(html, /<span>나머지는 가볍게\.<\/span>/);
+  // 앱 개편에 맞춘 실제 스크린샷과 마스코트 장면을 쓴다.
+  assert.match(html, /src="\/viewer\/screens\/library\.webp"/);
+  assert.match(html, /src="\/viewer\/bedtime-scene\.webp"/);
+  assert.match(html, /누워서도 편안하게, 읽고 듣고\./);
+  assert.doesNotMatch(html, /여백과 밝기를 작품마다/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 
   const staticAssetPaths = [
@@ -48,6 +53,9 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(guide, /모든 필드는 선택 사항입니다/);
   assert.match(guide, /생략한 필드는 앱에 저장된 기존 값을 변경하지 않습니다/);
   assert.match(guide, /ComicInfo\.xml/);
+  // readme 쓰기 동작이 앱과 어긋나지 않게 한다(앱 커밋 8a615fe).
+  assert.match(guide, /바꾼 책 정보를 readme\.txt 에 저장/);
+  assert.doesNotMatch(guide, /다시\s+압축파일 안에 쓰지는 않습니다/);
   assert.match(privacy, /개인정보 처리방침/);
   assert.match(privacy, /시행일 2026년 9월 9일/);
   assert.match(privacy, /Google Mobile Ads SDK/);
@@ -59,6 +67,8 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(privacy, /Google Books/);
   assert.match(privacy, /보관과 삭제/);
   assert.match(support, /무엇을 도와드릴까요/);
+  assert.match(support, /책장 폴더 관리/);
+  assert.match(privacy, /책장과 책 정보/);
   assert.match(support, /viewer\/issues\/new/);
   assert.match(support, /개인정보를 적지/);
   // Play Data Safety 의 데이터 삭제 URL 요건: 앱 이름, 삭제 단계, 보관 기간이
@@ -74,6 +84,10 @@ test("필수 공개 자산을 포함한다", async () => {
     access(new URL(".nojekyll", outputRoot)),
     access(new URL("app-icon.png", outputRoot)),
     access(new URL("og.png", outputRoot)),
+    access(new URL("bedtime-scene.webp", outputRoot)),
+    ...["library", "cover-intro", "book-detail", "webtoon-viewer", "text-viewer", "tts-playback", "viewer-settings"].map(
+      (name) => access(new URL(`screens/${name}.webp`, outputRoot)),
+    ),
     access(new URL("404.html", outputRoot)),
   ]);
 });

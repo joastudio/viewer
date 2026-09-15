@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "https://joastudio.github.io/viewer/app-icon.png",
     shortcut: "https://joastudio.github.io/viewer/app-icon.png",
+    apple: "https://joastudio.github.io/viewer/app-icon.png",
   },
   openGraph: {
     type: "website",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
         url: "https://joastudio.github.io/viewer/og.png",
         width: 1200,
         height: 630,
-        alt: "좋아뷰어",
+        alt: "좋아뷰어 — 밤에 침대에서 휴대폰으로 책을 읽는 마스코트",
       },
     ],
   },

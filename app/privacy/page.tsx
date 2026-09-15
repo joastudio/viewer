@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           <section id="local">
             <h2>1. 기기에 저장하는 정보</h2>
             <ul>
-              <li>사용자가 선택한 책장·백업 위치의 SAF URI</li>
+              <li>사용자가 선택한 책장·백업 폴더의 접근 권한 정보(SAF URI)</li>
               <li>독서 위치, 최근 기록, 북마크, 평점, 상태, 메모, 태그</li>
               <li>화면·뷰어·TTS·백업 설정</li>
               <li>Google Play에서 마지막으로 확인한 광고 제거 구매 여부</li>
@@ -63,8 +63,8 @@ export default function PrivacyPage() {
             <p>
               이 정보는 기본적으로 앱의 로컬 저장소에 보관됩니다. Android
               시스템 백업이 켜져 있으면 일반 설정과 앱 데이터 일부가 사용자의
-              Android 백업에 포함될 수 있습니다. 새 기기에서 복원된 SAF URI는
-              다시 권한을 받아야 합니다.
+              Android 백업에 포함될 수 있습니다. 새 기기에서 복원된 폴더 접근
+              권한은 다시 받아야 합니다.
             </p>
           </section>
 
@@ -73,20 +73,20 @@ export default function PrivacyPage() {
             <ul>
               <li>
                 Google Drive 백업을 직접 켠 경우 Google 계정 이메일과 사용자가
-                만든 백업 스냅샷을 Google Drive로 전송합니다.
+                만든 백업 파일을 Google Drive로 전송합니다.
               </li>
               <li>
-                SAF 백업을 켠 경우 사용자가 선택한 문서 제공자에 스냅샷을
-                저장합니다.
+                직접 고른 폴더로 백업을 켠 경우 그 폴더를 제공하는 앱(파일 앱,
+                클라우드 앱 등)에 백업 파일을 저장합니다.
               </li>
               <li>
                 TTS는 기기에 설치된 음성 합성 엔진을 사용하며, 엔진에 따라
                 텍스트 처리 방식과 네트워크 사용 여부가 다를 수 있습니다.
               </li>
               <li>
-                <strong>온라인 정보 가져오기</strong>(설정 &gt; 데이터)를 직접
-                켠 경우에 한해, 작품 상세에서 <code>메타 자동 채우기</code>를
-                실행하면 <strong>그 책의 제목만</strong> 외부 검색
+                <strong>온라인 정보 가져오기</strong>(설정 &gt; 책장과 책 정보의{" "}
+                <code>인터넷에서 표지·정보 찾기</code>)를 직접 켠 경우에 한해, 책
+                정보 화면에서 <code>온라인에서 책 정보 가져오기</code>를 실행하면 <strong>그 책의 제목만</strong> 외부 검색
                 서비스(MangaDex, Google Books)로 전송합니다. 파일 경로·문서
                 URI·독서 기록·메모는 보내지 않습니다. 응답으로 받은 표지와
                 서지 정보는 기기에 저장하며, 사용자가 확인 화면에서 적용을
@@ -159,7 +159,7 @@ export default function PrivacyPage() {
                 MangaDex 및 Google Books 검색 API(사용자가 온라인 정보
                 가져오기를 켠 경우)
               </li>
-              <li>사용자가 선택한 Android DocumentsProvider</li>
+              <li>사용자가 선택한 폴더를 제공하는 앱(Android DocumentsProvider)</li>
               <li>기기에 설치된 TTS 엔진</li>
             </ul>
             <p>각 서비스의 데이터 처리에는 해당 제공자의 정책이 함께 적용됩니다.</p>
@@ -169,7 +169,8 @@ export default function PrivacyPage() {
             <h2>6. 보관과 삭제</h2>
             <p>
               앱 삭제 또는 Android 설정의 앱 데이터 삭제로 로컬 데이터를
-              제거할 수 있습니다. Drive·SAF에 만든 백업 파일은 사용자가 해당
+              제거할 수 있습니다. Drive와 직접 고른 폴더에 만든 백업
+              파일은 사용자가 해당
               저장소에서 직접 삭제해야 합니다. Google Play 구매 기록은
               Google의 법적·회계 정책에 따라 관리됩니다.
             </p>
