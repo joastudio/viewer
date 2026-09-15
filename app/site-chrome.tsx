@@ -16,7 +16,7 @@ export function SiteHeader() {
         <span>좋아뷰어</span>
       </a>
       <nav aria-label="주요 메뉴">
-        <a href={`${basePath}/guide.html`}>사용 가이드</a>
+        <a href={`${basePath}/guide.html`}>가이드</a>
         <a href={`${basePath}/privacy.html`}>개인정보</a>
         <a href={`${basePath}/support.html`}>지원</a>
       </nav>
@@ -41,7 +41,7 @@ export function SiteFooter() {
         </div>
       </div>
       <nav aria-label="하단 메뉴">
-        <a href={`${basePath}/guide.html`}>사용 가이드</a>
+        <a href={`${basePath}/guide.html`}>파일 구성 가이드</a>
         <a href={`${basePath}/privacy.html`}>개인정보 처리방침</a>
         <a href={`${basePath}/support.html`}>지원</a>
       </nav>

@@ -9,7 +9,7 @@ const features = [
   {
     number: "01",
     title: "내 파일을 그대로",
-    body: "폴더 이미지와 ZIP·CBZ, RAR·CBR, 7z·CB7, TXT를 Android 폴더 선택기로 고른 곳에서만 엽니다. 책장 폴더를 여러 개 등록해 오갈 수 있습니다.",
+    body: "이미지 폴더와 ZIP·CBZ, RAR·CBR, 7z·CB7, TXT를 직접 고른 폴더에서만 엽니다. 책장 폴더는 여러 개 등록해 두고 오갈 수 있습니다.",
   },
   {
     number: "02",
@@ -19,12 +19,12 @@ const features = [
   {
     number: "03",
     title: "책장은 알아보기 쉽게",
-    body: "읽는 중·완료·보류 필터와 평가·진행률 정렬, 여러 권의 태그·상태 한꺼번에 편집. 표지가 없는 책은 제목 타일로, 폴더는 안에 든 작품 표지 모자이크로 보여 줍니다.",
+    body: "읽는 중·완료·보류로 거르고 평가·진행률로 정렬하며, 여러 권의 태그와 상태를 한 번에 바꿀 수 있습니다. 표지가 없는 책은 제목 타일로, 폴더는 안에 든 작품 표지 모자이크로 보여 줍니다.",
   },
   {
     number: "04",
-    title: "기록은 조용히 이어서",
-    body: "읽던 위치와 북마크, 메모는 기기에 보관합니다. 백업은 직접 켰을 때만 책장 폴더와 직접 고른 폴더, Google Drive에 저장합니다.",
+    title: "읽던 곳에서 이어서",
+    body: "읽던 위치와 북마크, 메모는 기기에 보관합니다. 백업은 켜 둔 경우에만 책장 폴더나 원하는 폴더, Google Drive에 저장합니다.",
   },
 ];
 
@@ -46,7 +46,7 @@ const screens = [
   {
     src: "text-viewer",
     title: "텍스트 뷰어",
-    body: "부 단위 이동과 진행률, 자동 넘김, 목차.",
+    body: "부 이동, 진행률, 자동 넘김, 목차를 한 곳에.",
     alt: "텍스트 뷰어. 녹색 배경의 본문 아래에 부 이동과 읽어주기·자동 넘김·목차 버튼이 있습니다.",
   },
   {
@@ -70,18 +70,15 @@ export default function Home() {
 
       <section className="hero shell" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">Android · 로컬 우선 뷰어</p>
+          <p className="eyebrow">Android 만화·소설 뷰어</p>
           <h1 id="hero-title">
-            내 파일,
+            내 파일을
             <br />
-            내 책장,
-            <br />
-            <span>내 방식.</span>
+            <span>내 책장처럼.</span>
           </h1>
           <p className="hero-description">
-            좋아뷰어는 사용자가 선택한 문서 폴더에서 만화·이미지·TXT를
-            읽는 한국어 중심 Android 뷰어입니다. 기본 열람은 서버 업로드
-            없이 기기 안에서 이루어집니다.
+            좋아뷰어는 휴대폰에 있는 만화와 TXT 소설을 폴더째 불러와 읽는
+            앱입니다. 파일은 어디에도 올리지 않고 기기 안에서 바로 엽니다.
           </p>
           <div className="hero-actions">
             <span className="launch-badge">Google Play 출시 준비 중</span>
@@ -129,12 +126,12 @@ export default function Home() {
       <section className="screens shell" aria-labelledby="screens-title">
         <div className="screens-heading">
           <div>
-            <p className="eyebrow">Inside the app</p>
+            <p className="eyebrow">앱 화면</p>
             <h2 id="screens-title">실제 화면으로 둘러보기</h2>
           </div>
           <p>
-            실기기에서 캡처한 화면입니다. 책은 좋아뷰어가 직접 만든 샘플
-            작품입니다.
+            실제 휴대폰에서 찍은 화면입니다. 화면 속 책은 소개용으로 만든
+            샘플입니다.
           </p>
         </div>
         <ul className="screen-rail">
@@ -161,10 +158,10 @@ export default function Home() {
 
       <section className="features shell" aria-labelledby="features-title">
         <div className="section-heading">
-          <p className="eyebrow">좋아뷰어가 지키는 것</p>
+          <p className="eyebrow">주요 기능</p>
           <h2 id="features-title">
-            <span>읽기에 집중하고,</span>
-            <span>나머지는 가볍게.</span>
+            <span>언제 어디서나,</span>
+            <span>쉽고 편하게.</span>
           </h2>
         </div>
         <div className="feature-list">
@@ -192,11 +189,12 @@ export default function Home() {
           />
         </figure>
         <div className="bedtime-copy">
-          <p className="eyebrow">Read &amp; listen</p>
-          <h2 id="bedtime-title">누워서도 편안하게, 읽고 듣고.</h2>
+          <p className="eyebrow">읽고 듣기</p>
+          <h2 id="bedtime-title">누워서 읽기 편하게.</h2>
           <p>
-            좋아뷰어는 침대에서 오래 읽는 사람을 위해 만들었습니다. 눈이
-            피곤하면 귀로 듣고, 손이 불편하면 다른 방법으로 넘깁니다.
+            좋아뷰어는 잠들기 전 침대에서 읽는 시간을 생각하며 만들었습니다.
+            눈이 피곤할 땐 읽어주기로 듣고, 휴대폰을 쥔 손이 번거로우면
+            볼륨키나 음성으로 넘길 수 있습니다.
           </p>
           <ul>
             <li>
@@ -215,8 +213,8 @@ export default function Home() {
             <li>
               <strong>음성 명령 · 얼굴 인식</strong>
               <span>
-                실험 기능입니다. 말이나 눈 감기·고개 기울임으로 페이지를
-                넘기며, 켤 때만 마이크·카메라를 사용합니다.
+                아직 실험 중인 기능입니다. 말하거나 눈을 감거나 고개를 기울여
+                페이지를 넘기며, 기능을 켰을 때만 마이크와 카메라를 씁니다.
               </span>
             </li>
           </ul>
@@ -225,8 +223,8 @@ export default function Home() {
 
       <section className="guide-teaser shell" aria-labelledby="guide-teaser-title">
         <div>
-          <p className="eyebrow">File organization guide</p>
-          <h2 id="guide-teaser-title">파일을 정리하면 책장이 더 정확해집니다.</h2>
+          <p className="eyebrow">파일 정리</p>
+          <h2 id="guide-teaser-title">파일을 조금만 정리하면 책장이 훨씬 깔끔해집니다.</h2>
           <p>
             표지와 메타데이터, 회차 이름을 간단한 규칙에 맞추면 웹툰과
             텍스트 소설을 작품 단위로 편하게 관리할 수 있습니다.
@@ -256,14 +254,14 @@ export default function Home() {
 
       <section className="privacy-callout shell" aria-labelledby="privacy-title">
         <div>
-          <p className="eyebrow">Privacy by default</p>
-          <h2 id="privacy-title">당신의 책장은 당신의 기기에.</h2>
+          <p className="eyebrow">개인정보</p>
+          <h2 id="privacy-title">내 책장은 내 휴대폰에만.</h2>
         </div>
         <div>
           <p>
-            좋아뷰어는 사용자가 고른 파일과 앱 내부 데이터만 읽습니다.
-            독서 기록은 기기에 저장되며, 백업과 온라인 정보 가져오기는
-            사용자가 직접 켰을 때만 동작합니다.
+            좋아뷰어는 직접 고른 폴더의 파일만 읽습니다. 독서 기록은
+            휴대폰에 저장되고, 백업과 온라인 정보 가져오기는 직접 켰을 때만
+            동작합니다.
           </p>
           <a className="button-link" href={`${basePath}/privacy.html`}>
             처리방침 자세히 보기

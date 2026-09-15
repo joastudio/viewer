@@ -55,7 +55,7 @@ export default function GuidePage() {
     <main className="page-main">
       <SiteHeader />
       <header className="page-hero shell">
-        <p className="eyebrow">File organization guide</p>
+        <p className="eyebrow">파일 정리 안내</p>
         <h1>파일 구성 가이드</h1>
         <p>
           좋아뷰어가 작품과 회차를 정확하게 인식하도록 폴더, 압축파일,
@@ -75,9 +75,9 @@ export default function GuidePage() {
 
         <article className="document-content guide-content">
           <div className="notice-box">
-            아래 구조는 필수가 아닌 권장안입니다. 기존 이미지 폴더와 ZIP도
-            열 수 있지만, 명시적인 표지와 일관된 회차 이름을 사용하면 자동
-            분류 결과가 더 안정적입니다.
+            아래 구조를 꼭 따를 필요는 없습니다. 지금 가진 이미지 폴더와 ZIP도
+            그대로 열리지만, 표지 파일을 따로 두고 회차 이름을 맞춰 두면
+            작품을 더 정확하게 알아봅니다.
           </div>
 
           <section id="webtoon">
@@ -85,8 +85,8 @@ export default function GuidePage() {
             <h2>작품 폴더 아래에 회차를 나눕니다</h2>
             <p>
               작품명 폴더의 최상위에 표지와 메타데이터를 두고, 각 회차는
-              하위 폴더나 CBZ 같은 압축파일로 구성합니다. 회차는 자연 정렬
-              순서로 표시됩니다.
+              하위 폴더나 CBZ 같은 압축파일로 구성합니다. 회차는 이름 순서대로
+              표시되며, 숫자는 1, 2, 10처럼 크기 순으로 정렬합니다.
             </p>
             <div className="structure-example">
               <span>권장 폴더 구조</span>
@@ -97,8 +97,8 @@ export default function GuidePage() {
                 회차 이름은 <code>001화</code>, <code>제2화</code>,{" "}
                 <code>ch03</code>, <code>vol.04</code>처럼 일관되게 작성합니다.
               </li>
-              <li>회차를 두 개 이상 두면 작품 단위 자동 인식이 안정적입니다.</li>
-              <li>각 회차 안의 이미지는 파일명 자연 정렬 순서로 읽습니다.</li>
+              <li>회차가 두 개 이상 있어야 하나의 작품으로 잘 묶입니다.</li>
+              <li>각 회차 안의 이미지도 파일 이름 순서대로 읽습니다.</li>
               <li>최상위의 표지 이미지는 본문 페이지에서 제외됩니다.</li>
             </ul>
           </section>
@@ -110,8 +110,8 @@ export default function GuidePage() {
               이미지가 없거나 한 장뿐이고 본문 TXT가 하나 이상이면 텍스트
               소설로 인식합니다. 본문은 <code>전체.txt</code> 한 파일로
               작성해도 되고, <code>1부.txt</code>, <code>2부.txt</code>처럼
-              여러 파일로 나눠도 됩니다. 여러 TXT는 파일명 자연 정렬 순서로
-              이어서 한 권처럼 읽습니다.
+              여러 파일로 나눠도 됩니다. 여러 TXT는 파일 이름 순서대로 이어
+              붙여 한 권처럼 읽습니다.
             </p>
             <div className="structure-example">
               <span>본문을 한 파일로 관리할 때</span>
@@ -123,13 +123,13 @@ export default function GuidePage() {
             </div>
             <ul>
               <li><code>readme.txt</code>는 메타데이터이므로 본문에서 제외됩니다.</li>
-              <li>본문 이미지가 두 장 이상이면 이미지 책으로 판정될 수 있습니다.</li>
+              <li>이미지가 두 장 이상 들어 있으면 만화책으로 인식될 수 있습니다.</li>
               <li>
                 압축하지 않은 폴더에 TXT만 있으면 TXT 파일이 각각 한 권으로
                 보입니다. 여러 TXT를 한 권으로 묶으려면 ZIP으로 묶어 주세요.
               </li>
-              <li>본문 파일은 UTF-8 사용을 권장하며 한국어 레거시 인코딩도 자동 감지합니다.</li>
-              <li>본문은 파일당 32MiB, 한 권 전체 64MiB까지 열 수 있습니다.</li>
+              <li>본문 파일은 UTF-8로 저장하는 것이 좋습니다. EUC-KR 같은 예전 인코딩도 자동으로 알아봅니다.</li>
+              <li>본문은 파일 하나에 32MB, 한 권 전체 64MB까지 열 수 있습니다.</li>
             </ul>
           </section>
 
@@ -137,14 +137,14 @@ export default function GuidePage() {
             <p className="guide-step">03 · 작품 메타데이터</p>
             <h2>readme에 작품 정보를 기록합니다</h2>
             <p>
-              작품 최상위의 <code>readme.txt</code> 또는 <code>readme.md</code>
-              첫 부분에 아래 형식을 작성합니다. 일반 YAML 전체 문법이 아닌,
-              한 줄에 하나의 <code>key: value</code>를 쓰는 간단한 형식입니다.
+              작품 최상위의 <code>readme.txt</code> 또는 <code>readme.md</code>{" "}
+              맨 앞에 아래처럼 적습니다. YAML과 비슷해 보이지만, 한 줄에{" "}
+              <code>key: value</code> 하나씩 쓰는 간단한 형식입니다.
             </p>
             <p className="guide-caution">
-              <strong>모든 필드는 선택 사항입니다.</strong> 원하는 항목만 작성할
-              수 있으며, 생략한 필드는 앱에 저장된 기존 값을 변경하지 않습니다.
-              유효하지 않은 값과 알 수 없는 필드는 오류 없이 무시됩니다.
+              <strong>모든 필드는 선택 사항입니다.</strong> 필요한 항목만 적으면
+              됩니다. 적지 않은 항목은 앱에 저장된 값이 그대로 유지되고, 잘못
+              쓴 값이나 모르는 항목은 그냥 건너뜁니다.
             </p>
             <div className="structure-example metadata-example">
               <span>readme.txt 예시</span>
@@ -169,8 +169,8 @@ export default function GuidePage() {
             <h3>앱에서 고친 정보는 readme.txt에도 저장됩니다</h3>
             <p>
               책 정보나 책장 일괄 편집에서 평가·상태·태그·메모 등을 바꾸면,
-              설정의 <code>바꾼 책 정보를 readme.txt 에 저장</code>(기본 켜짐)에
-              따라 아래처럼 저장됩니다.
+              설정의 <code>바꾼 책 정보를 readme.txt 에 저장</code>이 켜져 있을
+              때(기본값) 다음 위치에 함께 저장됩니다.
             </p>
             <ul>
               <li>폴더로 된 책: 폴더의 readme 파일에 저장합니다.</li>
@@ -178,7 +178,7 @@ export default function GuidePage() {
               <li>만화 압축파일과 단독 TXT: 파일은 그대로 두고 앱 안에만 저장합니다.</li>
             </ul>
             <p className="guide-caution">
-              <strong>확인:</strong> <code>title</code>, <code>ComicInfo.xml</code>,{" "}
+              <strong>참고:</strong> <code>title</code>, <code>ComicInfo.xml</code>,{" "}
               <code>info.json</code>은 현재 메타데이터로 가져오지 않습니다. 앱이
               readme에 저장할 때는 <code>---</code> 사이의 내용을 앱의 값으로 새로
               쓰므로, 지원하지 않는 필드와 그 안의 주석은 사라집니다.{" "}
@@ -201,9 +201,10 @@ export default function GuidePage() {
             <p>
               <code>cover.jpg</code>, <code>cover.jpeg</code>,{" "}
               <code>cover.png</code>, <code>cover.webp</code>,{" "}
-              <code>cover.gif</code>를 대소문자 구분 없이 인식합니다. 하위
-              회차 폴더가 아니라 작품 폴더나 압축파일의 최상위에 배치합니다.
+              <code>cover.gif</code>를 대소문자 구분 없이 인식합니다. 회차
+              폴더 안이 아니라 작품 폴더나 압축파일의 최상위에 둡니다.
             </p>
+            <p>표지는 아래 순서로 정합니다.</p>
             <ol>
               <li>
                 앱에서 직접 지정한 표지(<code>표지 변경</code>,{" "}
@@ -218,7 +219,7 @@ export default function GuidePage() {
               폴더는 안에 든 작품 표지를 최대 4개까지 모자이크로 보여 줍니다.
             </p>
             <p className="guide-caution">
-              <strong>확인:</strong> <code>cover.*</code>를 본문 페이지에서
+              <strong>참고:</strong> <code>cover.*</code>를 본문 페이지에서
               빼는 동작은 폴더와 ZIP·CBZ에 적용됩니다. RAR·CBR, 7z·CB7에서는
               표지 파일이 첫 페이지로 함께 보일 수 있습니다.
             </p>

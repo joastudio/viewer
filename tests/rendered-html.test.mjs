@@ -11,18 +11,18 @@ async function readOutput(name) {
 test("GitHub Pages 경로를 포함한 소개 페이지를 생성한다", async () => {
   const html = await readOutput("index.html");
 
-  assert.match(html, /<title>좋아뷰어 — 내 파일, 내 책장, 내 방식<\/title>/);
-  assert.match(html, /Android · 로컬 우선 뷰어/);
+  assert.match(html, /<title>좋아뷰어 — 내 파일을 내 책장처럼<\/title>/);
+  assert.match(html, /Android 만화·소설 뷰어/);
   assert.match(html, /href="\/viewer\/privacy\.html"/);
   assert.match(html, /src="\/viewer\/app-icon\.png"/);
   assert.match(html, /href="\/viewer\/guide\.html"/);
   assert.match(html, /파일 구성 가이드 보기/);
-  assert.match(html, /<span>읽기에 집중하고,<\/span>/);
-  assert.match(html, /<span>나머지는 가볍게\.<\/span>/);
+  assert.match(html, /<span>언제 어디서나,<\/span>/);
+  assert.match(html, /<span>쉽고 편하게\.<\/span>/);
   // 앱 개편에 맞춘 실제 스크린샷과 마스코트 장면을 쓴다.
   assert.match(html, /src="\/viewer\/screens\/library\.webp"/);
   assert.match(html, /src="\/viewer\/bedtime-scene\.webp"/);
-  assert.match(html, /누워서도 편안하게, 읽고 듣고\./);
+  assert.match(html, /누워서 읽기 편하게\./);
   assert.doesNotMatch(html, /여백과 밝기를 작품마다/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 
@@ -51,7 +51,7 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(guide, /2부\.txt/);
   assert.match(guide, /status: reading/);
   assert.match(guide, /모든 필드는 선택 사항입니다/);
-  assert.match(guide, /생략한 필드는 앱에 저장된 기존 값을 변경하지 않습니다/);
+  assert.match(guide, /적지 않은 항목은 앱에 저장된 값이 그대로 유지되고/);
   assert.match(guide, /ComicInfo\.xml/);
   // readme 쓰기 동작이 앱과 어긋나지 않게 한다(앱 커밋 8a615fe).
   assert.match(guide, /바꾼 책 정보를 readme\.txt 에 저장/);

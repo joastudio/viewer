@@ -10,11 +10,11 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://joastudio.github.io/viewer/"),
   title: {
-    default: "좋아뷰어 — 내 파일, 내 책장, 내 방식",
+    default: "좋아뷰어 — 내 파일을 내 책장처럼",
     template: "%s | 좋아뷰어",
   },
   description:
-    "서버 업로드 없이 내 만화·이미지·TXT를 읽는 한국어 중심 Android 뷰어.",
+    "휴대폰 속 만화와 TXT 소설을 폴더째 불러와 읽는 Android 뷰어.",
   icons: {
     icon: "https://joastudio.github.io/viewer/app-icon.png",
     shortcut: "https://joastudio.github.io/viewer/app-icon.png",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     siteName: "좋아뷰어",
-    title: "좋아뷰어 — 내 파일, 내 책장, 내 방식",
-    description: "내 만화·이미지·TXT를 조용하고 세밀하게 읽는 Android 뷰어.",
+    title: "좋아뷰어 — 내 파일을 내 책장처럼",
+    description: "내 만화와 TXT 소설을 기기 안에서 바로 읽는 Android 뷰어.",
     images: [
       {
         url: "https://joastudio.github.io/viewer/og.png",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "좋아뷰어 — 내 파일, 내 책장, 내 방식",
-    description: "내 만화·이미지·TXT를 조용하고 세밀하게 읽는 Android 뷰어.",
+    title: "좋아뷰어 — 내 파일을 내 책장처럼",
+    description: "내 만화와 TXT 소설을 기기 안에서 바로 읽는 Android 뷰어.",
     images: ["https://joastudio.github.io/viewer/og.png"],
   },
 };

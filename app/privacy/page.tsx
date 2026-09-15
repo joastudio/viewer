@@ -26,7 +26,7 @@ export default function PrivacyPage() {
     <main className="page-main">
       <SiteHeader />
       <header className="page-hero shell">
-        <p className="eyebrow">Privacy policy · 시행일 2026년 9월 9일</p>
+        <p className="eyebrow">시행일 2026년 9월 9일</p>
         <h1>개인정보 처리방침</h1>
         <p>
           좋아뷰어는 사용자가 직접 선택한 로컬 문서를 열람하는 Android
@@ -56,15 +56,15 @@ export default function PrivacyPage() {
             <h2>1. 기기에 저장하는 정보</h2>
             <ul>
               <li>사용자가 선택한 책장·백업 폴더의 접근 권한 정보(SAF URI)</li>
-              <li>독서 위치, 최근 기록, 북마크, 평점, 상태, 메모, 태그</li>
-              <li>화면·뷰어·TTS·백업 설정</li>
+              <li>독서 위치, 최근 기록, 북마크, 평가, 상태, 메모, 태그</li>
+              <li>화면·뷰어·읽어주기(TTS)·백업 설정</li>
               <li>Google Play에서 마지막으로 확인한 광고 제거 구매 여부</li>
             </ul>
             <p>
               이 정보는 기본적으로 앱의 로컬 저장소에 보관됩니다. Android
               시스템 백업이 켜져 있으면 일반 설정과 앱 데이터 일부가 사용자의
-              Android 백업에 포함될 수 있습니다. 새 기기에서 복원된 폴더 접근
-              권한은 다시 받아야 합니다.
+              Android 백업에 포함될 수 있습니다. 새 기기로 복원한 경우 폴더
+              접근 권한은 다시 허용해야 합니다.
             </p>
           </section>
 
@@ -169,9 +169,8 @@ export default function PrivacyPage() {
             <h2>6. 보관과 삭제</h2>
             <p>
               앱 삭제 또는 Android 설정의 앱 데이터 삭제로 로컬 데이터를
-              제거할 수 있습니다. Drive와 직접 고른 폴더에 만든 백업
-              파일은 사용자가 해당
-              저장소에서 직접 삭제해야 합니다. Google Play 구매 기록은
+              제거할 수 있습니다. Drive와 직접 고른 폴더에 만든 백업 파일은
+              사용자가 해당 저장소에서 직접 삭제해야 합니다. Google Play 구매 기록은
               Google의 법적·회계 정책에 따라 관리됩니다.
             </p>
           </section>
