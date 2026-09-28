@@ -89,7 +89,7 @@ test("필수 공개 자산을 포함한다", async () => {
     access(new URL("app-icon.png", outputRoot)),
     access(new URL("og.png", outputRoot)),
     access(new URL("bedtime-scene.webp", outputRoot)),
-    ...["library", "cover-intro", "book-detail", "webtoon-viewer", "text-viewer", "tts-playback", "viewer-settings"].map(
+    ...["library", "cover-intro", "folder-library", "book-detail", "webtoon-viewer", "manga-viewer", "text-viewer", "tts-playback", "viewer-settings"].map(
       (name) => access(new URL(`screens/${name}.webp`, outputRoot)),
     ),
     access(new URL("404.html", outputRoot)),
