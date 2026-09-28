@@ -153,8 +153,8 @@ export default function Home() {
                 <Image
                   src={`${basePath}/screens/${screen.src}.webp`}
                   alt={screen.alt}
-                  width={720}
-                  height={1560}
+                  width={540}
+                  height={1170}
                   loading="lazy"
                   unoptimized
                 />
