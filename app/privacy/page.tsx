@@ -84,13 +84,12 @@ export default function PrivacyPage() {
                 텍스트 처리 방식과 네트워크 사용 여부가 다를 수 있습니다.
               </li>
               <li>
-                <strong>온라인 정보 가져오기</strong>(설정 &gt; 책장과 책 정보의{" "}
-                <code>인터넷에서 표지·정보 찾기</code>)를 직접 켠 경우에 한해, 책
+                <strong>온라인 정보 가져오기</strong>(설정 &gt; 책장과 책 정보)를 직접 켠 경우에 한해, 책
                 정보 화면에서 <code>온라인에서 책 정보 가져오기</code>를 실행하면 <strong>그 책의 제목만</strong> 외부 검색
-                서비스(MangaDex, Google Books)로 전송합니다. 파일 경로·문서
-                URI·독서 기록·메모는 보내지 않습니다. 응답으로 받은 표지와
-                서지 정보는 기기에 저장하며, 사용자가 확인 화면에서 적용을
-                선택하면 책 파일 안(readme.txt, cover.jpg)에도 기록합니다. 이
+                서비스(MangaDex)로 전송합니다. 파일 경로·문서
+                URI·독서 기록·메모는 보내지 않습니다. 선택한 서지 정보는
+                기기에 저장하며, 책 종류에 따라 readme.txt에도 기록합니다.
+                외부 표지는 내려받지 않습니다. 이
                 기능은 기본으로 꺼져 있고 언제든 다시 끌 수 있습니다.
               </li>
               <li>
@@ -156,8 +155,7 @@ export default function PrivacyPage() {
                 경우)
               </li>
               <li>
-                MangaDex 및 Google Books 검색 API(사용자가 온라인 정보
-                가져오기를 켠 경우)
+                MangaDex 검색 API(사용자가 온라인 정보 가져오기를 켠 경우)
               </li>
               <li>사용자가 선택한 폴더를 제공하는 앱(Android DocumentsProvider)</li>
               <li>기기에 설치된 TTS 엔진</li>

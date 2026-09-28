@@ -169,7 +169,7 @@ export default function GuidePage() {
             <h3>앱에서 고친 정보는 readme.txt에도 저장됩니다</h3>
             <p>
               책 정보나 책장 일괄 편집에서 평가·상태·태그·메모 등을 바꾸면,
-              설정의 <code>바꾼 책 정보를 readme.txt 에 저장</code>이 켜져 있을
+              설정의 <code>바꾼 책 정보를 readme.txt에 저장</code>이 켜져 있을
               때(기본값) 다음 위치에 함께 저장됩니다.
             </p>
             <ul>
@@ -186,12 +186,12 @@ export default function GuidePage() {
             </p>
             <h3>온라인에서 책 정보 가져오기</h3>
             <p>
-              설정의 <code>인터넷에서 표지·정보 찾기</code>를 켜면 책 정보
-              화면에서 한 권씩 표지·작가·태그를 검색해 채울 수 있습니다. 이
-              기능은 기본으로 꺼져 있으며, 켜면 책 제목이 MangaDex와 Google
-              Books로 전송됩니다. 결과를 적용하면 폴더로 된 책에는{" "}
-              <code>cover.jpg</code>와 <code>readme.txt</code>를 쓰고, 단독 TXT는
-              표지·본문·readme를 담은 소설 ZIP으로 바꿉니다.
+              설정의 <code>온라인 정보 가져오기</code>를 켜면 책 정보
+              화면에서 한 권씩 저자·연재처·태그를 검색해 채울 수 있습니다. 이
+              기능은 기본으로 꺼져 있으며, 켜면 책 제목이 MangaDex로
+              전송됩니다. 결과를 적용하면 폴더로 된 책에는{" "}
+              <code>readme.txt</code>를 쓰고, 단독 TXT는 본문과 readme를 담은
+              소설 ZIP으로 바꿉니다. 표지는 기기에서 직접 선택할 수 있습니다.
             </p>
           </section>
 
@@ -208,7 +208,7 @@ export default function GuidePage() {
             <ol>
               <li>
                 앱에서 직접 지정한 표지(<code>표지 변경</code>,{" "}
-                <code>표지 일괄 설정</code>, 온라인에서 가져온 표지)
+                <code>표지 일괄 설정</code>)
               </li>
               <li>최상위의 <code>cover.*</code></li>
               <li>소설처럼 이미지가 한 장뿐인 구조라면 그 이미지</li>

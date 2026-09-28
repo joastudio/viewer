@@ -54,7 +54,9 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(guide, /적지 않은 항목은 앱에 저장된 값이 그대로 유지되고/);
   assert.match(guide, /ComicInfo\.xml/);
   // readme 쓰기 동작이 앱과 어긋나지 않게 한다(앱 커밋 8a615fe).
-  assert.match(guide, /바꾼 책 정보를 readme\.txt 에 저장/);
+  assert.match(guide, /바꾼 책 정보를 readme\.txt에 저장/);
+  // 온라인 표지 가져오기는 앱에서 보류됐다(앱 커밋 5262078).
+  assert.doesNotMatch(guide, /온라인에서 가져온 표지/);
   assert.doesNotMatch(guide, /다시\s+압축파일 안에 쓰지는 않습니다/);
   assert.match(privacy, /개인정보 처리방침/);
   assert.match(privacy, /시행일 2026년 9월 9일/);
@@ -64,7 +66,9 @@ test("공개 가이드와 개인정보 처리방침, 지원 페이지를 생성�
   assert.match(privacy, /Firebase Crashlytics/);
   assert.match(privacy, /오류 보고/);
   assert.match(privacy, /MangaDex/);
-  assert.match(privacy, /Google Books/);
+  // 1.0.0부터 Google Books 조회를 중단했다(앱 커밋 ae588ba, ADR-0024 §6).
+  assert.doesNotMatch(privacy, /Google Books/);
+  assert.doesNotMatch(guide, /Google\s+Books/);
   assert.match(privacy, /보관과 삭제/);
   assert.match(support, /무엇을 도와드릴까요/);
   assert.match(support, /책장 폴더 관리/);
